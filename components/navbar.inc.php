@@ -7,13 +7,13 @@
 				<div class="collapse navbar-collapse justify-content-end" id="navbarNav">
 					<ul class="navbar-nav">
 						<li class="nav-item">
-							<a class="nav-link active" aria-current="page" href="#">Home</a>
+							<a class="nav-link <?php echo ($page == "index" ? "active" : "")?>" href="index.php">Home</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="#">Register</a>
+							<a class="nav-link <?php echo ($page == "register" ? "active" : "")?>" href="register.php">Register</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="#">Registration numbers</a>
+							<a class="nav-link <?php echo ($page == "registrations" ? "active" : "")?>" href="registrations.php">Registration numbers</a>
 						</li>
 					</ul>
 				</div>

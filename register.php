@@ -1,3 +1,4 @@
+<?php $page = "register"; ?>
 <?php require('components/head.inc.php'); ?>
 <?php include('components/navbar.inc.php'); ?>
 <?php include('components/registration-form.inc.php'); ?>
