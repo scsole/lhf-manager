@@ -1,5 +1,7 @@
-FROM php:8.1-fpm
+FROM php:8.1-fpm-alpine
 
-RUN apt-get update && apt-get install -y libpq-dev
+RUN set -ex \
+  && apk --no-cache add \
+    postgresql-dev
 
 RUN docker-php-ext-install pdo_pgsql
