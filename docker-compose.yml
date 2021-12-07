@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+
+  nginx:
+    image: docker.io/nginx:1.21
+    ports:
+      - 8080:80
+      - 8443:443
+    volumes:
+      - ./src:/var/www/php
+      - ./.docker/nginx/conf.d:/etc/nginx/conf.d
+    depends_on:
+      - php
+
+  php:
+    build: ./.docker/php
+    working_dir: /var/www/php
+    volumes:
+      - ./src:/var/www/php
+    depends_on:
+      - postgres
+
+  postgres:
+    image: docker.io/postgres:14.1
+    ports:
+      - 5432:5432 
+    environment:
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      # - .docker/postgres/init-user-db.sh:/etc
+      - postgres_data:/var/lib/postgresql/data
+      
+
+volumes:
+
+  postgres_data:
